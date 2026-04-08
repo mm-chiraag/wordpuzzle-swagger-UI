@@ -1,0 +1,30 @@
+name: wordpuzzle-openenv
+version: 0.1.0
+description: A Wordle-style mini-game RL environment for LLM agents with 3 difficulty levels.
+entrypoint: server.app:app
+type: http
+spec_version: "1.0"
+tasks:
+  - id: wordpuzzle-easy
+    name: "WordPuzzle Easy"
+    description: "Guess a 4-letter word in 6 attempts using letter position feedback."
+    grader:
+      endpoint: /grader
+      field: score
+      range: [0.0, 1.0]
+
+  - id: wordpuzzle-medium
+    name: "WordPuzzle Medium"
+    description: "Guess a 5-letter word in 5 attempts using letter position feedback."
+    grader:
+      endpoint: /grader
+      field: score
+      range: [0.0, 1.0]
+
+  - id: wordpuzzle-hard
+    name: "WordPuzzle Hard"
+    description: "Guess a 6-letter word in 4 attempts using letter position feedback."
+    grader:
+      endpoint: /grader
+      field: score
+      range: [0.0, 1.0]
